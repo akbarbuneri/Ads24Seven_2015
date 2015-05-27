@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "wrappedProject": "../../ArgaamPlus.CSQuery.csproj",
+      "bin": {
+        "assembly": "../../obj/{configuration}/ArgaamPlus.CSQuery.dll",
+        "pdb": "../../obj/{configuration}/ArgaamPlus.CSQuery.pdb"
+      },
+      "dependencies": {
+        "HtmlAgilityPack": "1.0.0-*"
+      }
+    },
+    "net46": {
+      "wrappedProject": "../../ArgaamPlus.CSQuery.csproj",
+      "bin": {
+        "assembly": "../../obj/{configuration}/ArgaamPlus.CSQuery.dll",
+        "pdb": "../../obj/{configuration}/ArgaamPlus.CSQuery.pdb"
+      },
+      "dependencies": {
+        "HtmlAgilityPack": "1.0.0-*"
+      }
+    }
+  }
+}

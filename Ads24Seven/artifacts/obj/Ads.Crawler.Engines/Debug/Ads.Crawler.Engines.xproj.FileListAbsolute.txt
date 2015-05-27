@@ -1,0 +1,1 @@
+c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\artifacts\obj\Ads.Crawler.Engines\Debug\Ads.Crawler.Engines.xprojResolveAssemblyReference.cache

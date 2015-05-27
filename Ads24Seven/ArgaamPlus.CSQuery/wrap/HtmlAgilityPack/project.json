@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net45": {
+      "bin": {
+        "assembly": "../../System/HtmlAgilityPack/HtmlAgilityPack.dll"
+      }
+    },
+    "net46": {
+      "bin": {
+        "assembly": "../../System/HtmlAgilityPack/HtmlAgilityPack.dll"
+      }
+    }
+  }
+}

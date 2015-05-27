@@ -1,0 +1,5 @@
+c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.CSQueries\bin\Debug\Ads.CSQueries.dll
+c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.CSQueries\bin\Debug\Ads.CSQueries.pdb
+c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.CSQueries\bin\Debug\HtmlAgilityPack.dll
+c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.CSQueries\obj\Debug\Ads.CSQueries.dll
+c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.CSQueries\obj\Debug\Ads.CSQueries.pdb

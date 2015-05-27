@@ -1,0 +1,12 @@
+E:\Projects\ArgaamPlus\Branches\1stMay - Copy\ArgaamPlus.CSQuery\bin\Debug\ArgaamPlus.CSQuery.dll
+E:\Projects\ArgaamPlus\Branches\1stMay - Copy\ArgaamPlus.CSQuery\bin\Debug\ArgaamPlus.CSQuery.pdb
+E:\Projects\ArgaamPlus\Branches\1stMay - Copy\ArgaamPlus.CSQuery\bin\Debug\HtmlAgilityPack.dll
+E:\Projects\ArgaamPlus\Branches\1stMay - Copy\ArgaamPlus.CSQuery\obj\Debug\ArgaamPlus.CSQuery.csprojResolveAssemblyReference.cache
+E:\Projects\ArgaamPlus\Branches\1stMay - Copy\ArgaamPlus.CSQuery\obj\Debug\ArgaamPlus.CSQuery.dll
+E:\Projects\ArgaamPlus\Branches\1stMay - Copy\ArgaamPlus.CSQuery\obj\Debug\ArgaamPlus.CSQuery.pdb
+C:\Users\akbar\Documents\Visual Studio 2015\Projects\Ads24Seven\ArgaamPlus.CSQuery\bin\Debug\ArgaamPlus.CSQuery.dll
+C:\Users\akbar\Documents\Visual Studio 2015\Projects\Ads24Seven\ArgaamPlus.CSQuery\bin\Debug\ArgaamPlus.CSQuery.pdb
+C:\Users\akbar\Documents\Visual Studio 2015\Projects\Ads24Seven\ArgaamPlus.CSQuery\bin\Debug\HtmlAgilityPack.dll
+C:\Users\akbar\Documents\Visual Studio 2015\Projects\Ads24Seven\ArgaamPlus.CSQuery\obj\Debug\ArgaamPlus.CSQuery.csprojResolveAssemblyReference.cache
+C:\Users\akbar\Documents\Visual Studio 2015\Projects\Ads24Seven\ArgaamPlus.CSQuery\obj\Debug\ArgaamPlus.CSQuery.dll
+C:\Users\akbar\Documents\Visual Studio 2015\Projects\Ads24Seven\ArgaamPlus.CSQuery\obj\Debug\ArgaamPlus.CSQuery.pdb
