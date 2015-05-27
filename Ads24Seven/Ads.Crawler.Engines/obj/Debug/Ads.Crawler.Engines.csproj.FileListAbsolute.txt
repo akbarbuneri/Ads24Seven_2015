@@ -6,3 +6,10 @@ c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.Crawler.Engi
 c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.Crawler.Engines\bin\Debug\Ads.CSQueries.pdb
 c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.Crawler.Engines\obj\Debug\Ads.Crawler.Engines.dll
 c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.Crawler.Engines\obj\Debug\Ads.Crawler.Engines.pdb
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.Crawler.Engines\bin\Debug\Ads.Crawler.Engines.dll
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.Crawler.Engines\bin\Debug\Ads.Crawler.Engines.pdb
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.Crawler.Engines\bin\Debug\Ads.CSQueries.dll
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.Crawler.Engines\bin\Debug\Ads.CSQueries.pdb
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.Crawler.Engines\obj\Debug\Ads.Crawler.Engines.csprojResolveAssemblyReference.cache
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.Crawler.Engines\obj\Debug\Ads.Crawler.Engines.dll
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.Crawler.Engines\obj\Debug\Ads.Crawler.Engines.pdb

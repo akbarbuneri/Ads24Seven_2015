@@ -12,3 +12,11 @@ c:\users\akbar\documents\visual studio 2015\Projects\Ads24Seven\Ads.SeeIt\bin\De
 E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\Ads.SeeIt.exe.config
 E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\obj\Debug\Ads.SeeIt.exe
 E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\obj\Debug\Ads.SeeIt.pdb
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\Ads.SeeIt.exe
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\Ads.SeeIt.pdb
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\Ads.Crawler.Engines.dll
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\HtmlAgilityPack.dll
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\Ads.CSQueries.dll
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\Ads.Crawler.Engines.pdb
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\bin\Debug\Ads.CSQueries.pdb
+E:\Working\Ads24Seven_2015\Ads24Seven\Ads.SeeIt\obj\Debug\Ads.SeeIt.csprojResolveAssemblyReference.cache
