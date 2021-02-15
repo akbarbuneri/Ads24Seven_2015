@@ -1,0 +1,3425 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ArgaamPlus API",
+    "contact": {
+      "name": "Argaam IT",
+      "url": "https://www.argaam.com",
+      "email": "developer@argaam.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v{version}/json/get-articles": {
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1,
+              "nullable": true
+            }
+          },
+          {
+            "name": "records",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 200,
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleEntity"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleEntity"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/get-article-types": {
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleType"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleType"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleType"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/get-article-sources": {
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "ar",
+              "nullable": true
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1,
+              "nullable": true
+            }
+          },
+          {
+            "name": "record",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 200,
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleSource"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleSource"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleSource"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/authenticate": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCred"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCred"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCred"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/refresh": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshCred"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshCred"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshCred"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/commodities/get-list": {
+      "get": {
+        "tags": [
+          "Commodities"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Commodity"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Commodity"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Commodity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/commodities/get-regular-commodity-quotes": {
+      "get": {
+        "tags": [
+          "Commodities"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommodityQuote"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommodityQuote"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommodityQuote"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/commodities/get-regular-commodity-quotes-archive/{commodityId}": {
+      "get": {
+        "tags": [
+          "Commodities"
+        ],
+        "parameters": [
+          {
+            "name": "commodityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommodityQuoteArchiveEntity"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommodityQuoteArchiveEntity"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CommodityQuoteArchiveEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/commodities/get-shipping-prices-archive/{commodityId}": {
+      "get": {
+        "tags": [
+          "Commodities"
+        ],
+        "parameters": [
+          {
+            "name": "commodityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingPriceEntity"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingPriceEntity"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingPriceEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/commodities/get-shipping-simple-prices-archive/{commodityId}": {
+      "get": {
+        "tags": [
+          "Commodities"
+        ],
+        "parameters": [
+          {
+            "name": "commodityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingPriceEntity"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingPriceEntity"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ShippingPriceEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/commodities/get-other-commodity-quotes-archive/{commodityId}": {
+      "get": {
+        "tags": [
+          "Commodities"
+        ],
+        "parameters": [
+          {
+            "name": "commodityId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OtherCommodityQuoteEntity"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OtherCommodityQuoteEntity"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OtherCommodityQuoteEntity"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/get-profile/{companyID}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfile"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfile"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/company-structure/{companyID}/{companyPositionTypeID}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "companyPositionTypeID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyStructure"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyStructure"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyStructure"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/{marketID}/company-data/{companyID}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/{marketID}/company-data/{companyID}/archive": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyDataArchive"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyDataArchive"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyDataArchive"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/{companyID}/financial-highlights": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialHighlights"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialHighlights"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialHighlights"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/{companyID}/financial-statments": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "fiscalPeriodType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "annual",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArgaamResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArgaamResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArgaamResult"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/{companyID}/financial-statement-pdf": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialStatementPDF"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialStatementPDF"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialStatementPDF"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/stock-info/{companyID}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyStockInfo"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyStockInfo"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyStockInfo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/company/company-ratios/{companyID}/{period}": {
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "parameters": [
+          {
+            "name": "resultType",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "period",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "year",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialRatioResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialRatioResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinancialRatioResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/get-all": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Market"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Market"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Market"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/get-international-markets": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Market"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Market"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Market"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/markets-data/{marketID}": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/international-markets-data/{marketID}": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternationalMarketData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternationalMarketData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternationalMarketData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/markets-data/{marketID}/archive": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketDataArchive"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketDataArchive"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketDataArchive"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/international-markets-data/{marketID}/archive": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternationalMarketDataArchive"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternationalMarketDataArchive"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InternationalMarketDataArchive"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/{marketID}/companies": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketCompany"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketCompany"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketCompany"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/{marketID}/sectors/{sectorID}": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sectorID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketSector"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketSector"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MarketSector"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/{marketID}/sectors-data/{sectorID}": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sectorID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectorData"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectorData"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectorData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/{marketID}/sectors-data/{sectorID}/archive": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sectorID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectorDataArchive"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectorDataArchive"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectorDataArchive"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/{marketID}/movers": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketPosition"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketPosition"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketPosition"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/{marketID}/events": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketOnly",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "companyID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CalendarEvents"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CalendarEvents"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CalendarEvents"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v{version}/json/markets/{marketid}/financial-statement-pdf": {
+      "get": {
+        "tags": [
+          "Markets"
+        ],
+        "parameters": [
+          {
+            "name": "marketID",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "forYear",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketFinancialStatementPDF"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketFinancialStatementPDF"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketFinancialStatementPDF"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArticleEntity": {
+        "type": "object",
+        "properties": {
+          "articleID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "language": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "publishedOn": {
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "isPaid": {
+            "type": "boolean"
+          },
+          "articleSourceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleType": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "marketTickerChartIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "companyTickerChartIDs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArticleType": {
+        "type": "object",
+        "properties": {
+          "articleTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "argaamID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "usedInChart": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArticleSource": {
+        "type": "object",
+        "properties": {
+          "articleSourceID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleSourceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "languageID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "parentArticleSourceID": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "isActiveForStatistic": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserCred": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshCred": {
+        "type": "object",
+        "properties": {
+          "jwtToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Commodity": {
+        "type": "object",
+        "properties": {
+          "commodityID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommodityQuote": {
+        "type": "object",
+        "properties": {
+          "commodityID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tickerChartCommodityName": {
+            "type": "string",
+            "nullable": true
+          },
+          "commodityNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "commodityNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "forDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "previousCloseValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "indexValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "change": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentageChange": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ybgnChange": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastUpdated": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CommodityQuoteArchiveEntity": {
+        "type": "object",
+        "properties": {
+          "commodityID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "commodityNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "commodityNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "forDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShippingPriceEntity": {
+        "type": "object",
+        "properties": {
+          "commodityID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "commodityNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "commodityNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "forDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OtherCommodityQuoteEntity": {
+        "type": "object",
+        "properties": {
+          "commodityID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "commodityNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "commodityNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "regionNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "forDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "averageValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyProfile": {
+        "type": "object",
+        "properties": {
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "poBoxEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "fax": {
+            "type": "string",
+            "nullable": true
+          },
+          "poBoxAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "websiteURL": {
+            "type": "string",
+            "nullable": true
+          },
+          "summaryEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "summaryAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "overviewEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "overviewAr": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyStructure": {
+        "type": "object",
+        "properties": {
+          "individualID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "positionID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "positionNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "positionNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyPositionTypeID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyPositionTypeNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyPositionTypeNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "profilePicURL": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyData": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "previousCloseValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "change": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentageChange": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyDataArchive": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialHighlightsField": {
+        "type": "object",
+        "properties": {
+          "displayNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialHighlights": {
+        "type": "object",
+        "properties": {
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "forDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "forYear": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fiscalPeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialHighlightsField"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ArgaamResult": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "statusMessage": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialStatementPDFFile": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fiscalPeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileURLAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileURLEn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialStatementPDF": {
+        "type": "object",
+        "properties": {
+          "companyNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "company": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialStatementPDFFile"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyStockInfo": {
+        "type": "object",
+        "properties": {
+          "sharesOutstanding": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "parValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "bookValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "marketCap": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialRatioFieldsGroupFieldValue": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "period": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialRatioFieldsGroupField": {
+        "type": "object",
+        "properties": {
+          "nameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "values": {
+            "$ref": "#/components/schemas/FinancialRatioFieldsGroupFieldValue"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FinancialRatioResponse": {
+        "type": "object",
+        "properties": {
+          "period": {
+            "type": "string",
+            "nullable": true
+          },
+          "financialRatioFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialRatioFieldsGroupField"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Market": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "marketNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "marketNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketData": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "previousCloseValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "changeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "contractCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isOpened": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "percentageChange": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InternationalMarketData": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "change": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentageChange": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketDataArchive": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InternationalMarketDataArchive": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketCompany": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyNameEn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketSector": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sectorID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorNameEn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SectorData": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sectorID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "change": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentageChange": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SectorDataArchive": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sectorID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "tradingDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "high": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "low": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketMover": {
+        "type": "object",
+        "properties": {
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bid": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "openValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "closeValue": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "change": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "percentageChange": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "volume": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketPosition": {
+        "type": "object",
+        "properties": {
+          "losers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketMover"
+            },
+            "nullable": true
+          },
+          "gainers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketMover"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalendarEvents": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "occursOn": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketSectorFinancialStatementPDF": {
+        "type": "object",
+        "properties": {
+          "sectorID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sectorNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "sectorNameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "companies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FinancialStatementPDF"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarketFinancialStatementPDF": {
+        "type": "object",
+        "properties": {
+          "marketID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sectors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MarketSectorFinancialStatementPDF"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
